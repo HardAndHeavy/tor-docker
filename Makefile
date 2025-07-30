@@ -12,14 +12,12 @@ build:
 publish:
 	docker image tag tor:$(tag) hardandheavy/tor:$(tag)
 	docker push hardandheavy/tor:$(tag)
-	docker image tag tor:$(tag) hardandheavy/tor:latest
-	docker push hardandheavy/tor:latest
 
 run:
 	docker run -it --rm \
 		-v ./torrc:/etc/tor/torrc \
 		-p 9150:9150 \
-		hardandheavy/tor:latest
+		hardandheavy/tor:10
 
 test:
 	curl https://ipinfo.tw/ip
